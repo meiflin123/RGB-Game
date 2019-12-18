@@ -49,23 +49,21 @@ const setupSquares = () => {
 }
 
 //add click event listener to EASY and HARD btn
+ // remove class selected for all buttons.
  // if clicked btn is EASY
    // set colors length = 3
 
 // else, set colors length = 6
 const setupModes = () => {
   for (let i = 0; i < modes.length; i++) {
-    modes[i].addEventListener('click', () => {
-      if(modes[i].textContent === 'Easy') {
-        console.log(num)
-        num = 3;
-        resetColor();
-      } else {
-        num = 6;
-        resetColor();
-        console.log(num)
-      }
-    })
+    modes[i].addEventListener('click', function(){
+
+      modes[0].classList.remove('selected');
+      modes[1].classList.remove('selected');
+      this.classList.add('selected');
+      this.textContent === 'Easy'? num = 3 : num = 6;
+      resetColor();
+      })
   }
 }
 
