@@ -1,1 +1,1 @@
-web: node rgb.js
+web: index.html
