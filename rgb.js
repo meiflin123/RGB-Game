@@ -1,10 +1,10 @@
 let colors = [];
 let solution = '';
 let num = 6;
-const solutionSpan = document.querySelector('.title span')
+const solutionSpan = document.querySelector('h1 span')
 const squares = document.querySelectorAll('.square');
-const title = document.querySelector('.title')
-const span = document.querySelector('.bar span')
+const title = document.querySelector('h1')
+const span = document.querySelector('#bar span')
 const resetBtn = document.querySelector('#reset');
 const modes = document.querySelectorAll('.mode')
 
