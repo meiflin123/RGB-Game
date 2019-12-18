@@ -3,7 +3,7 @@ let solution = '';
 let num = 6;
 const solutionSpan = document.querySelector('h1 span')
 const squares = document.querySelectorAll('.square');
-const title = document.querySelector('h1')
+const h1= document.querySelector('h1')
 const span = document.querySelector('#bar span')
 const resetBtn = document.querySelector('#reset');
 const modes = document.querySelectorAll('.mode')
@@ -19,27 +19,30 @@ const init = () => {
 //add click EventListners to sqaures
 //loop through squares
     //if picked color === solution: 
-      //style title bg the solution color.
+      //style h1 bg the solution color.
       //style rest sqaures solution color.
       //display'correct' to bar span.
+      // display resetBtn 'Play Again?'
     //if diff, 
       //guessed square's background = body background
       // bar span would be 'try again';
 
 const setupSquares = () => {
   for(let i = 0; i < squares.length; i++) {
-    squares[i].addEventListener('click', ()=>{
-      if(squares[i].style.backgroundColor === solution) { 
-        title.style.backgroundColor = solution
-        for (let i = 0; i < squares.length; i++) {
-          squares[i].style.backgroundColor = solution;
-          console.log(squares[i].style.backgroundColor, solution)
-        }
-        span.textContent= 'correct' 
+
+    squares[i].addEventListener('click', function(){
+
+      if(this.style.backgroundColor === solution) { 
+        h1.style.backgroundColor = solution;
+        span.textContent = 'Correct';
+        resetBtn.textContent = 'Play Again?';
+
+        for (let j = 0;  j < squares.length; j++) {
+          squares[j].style.backgroundColor = solution;
+        }     
       } else {
-        squares[i].style.backgroundColor = "#232323"
+        this.style.backgroundColor = "#232323"
         span.textContent ="Try Again"
-        console.log(squares[i].style.backgroundColor, solution)
       } 
     })
   }    
@@ -73,7 +76,7 @@ const setupModes = () => {
   //display solution rgb
 //assign colors to squares
 const resetColor = () => {
-  title.style.backgroundColor = 'steelblue'
+  h1.style.backgroundColor = 'steelblue'
   span.textContent= ''
   colors = generateColor(num)
   solution = colors[Math.floor(Math.random() * num)]
